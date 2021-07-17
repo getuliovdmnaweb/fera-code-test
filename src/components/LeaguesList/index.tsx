@@ -1,5 +1,7 @@
 import React from "react";
-import { Avatar, List } from "react-native-paper";
+import { List } from "react-native-paper";
+
+import { Icon } from "./leagues-list.styled";
 
 interface Props {
   leagues: LeagueInfo[];
@@ -11,13 +13,7 @@ const LeaguesList: React.FC<Props> = ({ leagues }) => {
       {leagues.map(({ league, seasons }) => (
         <List.Accordion
           key={league.id.toString()}
-          left={() => (
-            <Avatar.Image
-              style={{ backgroundColor: "transparent" }}
-              size={24}
-              source={{ uri: league.logo }}
-            />
-          )}
+          left={() => <Icon source={{ uri: league.logo }} />}
           title={league.name}
           id={league.id.toString()}
         >
