@@ -2,54 +2,34 @@ import React from "react";
 import { ScrollView } from "react-native";
 import { TextInput, List, Avatar } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
+import { LeaguesList } from "../../components";
+import { useInputSubmit } from "../../hooks";
 import { RootState } from "../../redux";
 import { fetchSearchedLeague } from "../../redux/actions";
 
 const SearchLeagues: React.FC = () => {
-  const [text, setText] = React.useState("");
   const leagues = useSelector((state: RootState) => state.leagues.list);
   const dispatch = useDispatch();
 
-  const clearInput = () => {
-    setText("");
+  const fetchLeagues = () => {
+    dispatch(fetchSearchedLeague(inputText));
   };
-  const onFetch = () => {
-    dispatch(fetchSearchedLeague(text));
-  };
-  const onSubmit = () => {
-    onFetch();
-    clearInput();
-  };
+
+  const { inputText, setInputText, onSubmit } = useInputSubmit({
+    onFetch: fetchLeagues,
+  });
 
   return (
     <ScrollView>
       <TextInput
         label="Country"
-        value={text}
+        value={inputText}
         placeholder="Type Country Code or Country Name"
-        onChangeText={setText}
+        onChangeText={setInputText}
         onSubmitEditing={onSubmit}
         mode="outlined"
       />
-      <List.AccordionGroup>
-        {leagues.map(({ league, seasons }) => (
-          <List.Accordion
-            left={() => (
-              <Avatar.Image
-                style={{ backgroundColor: "transparent" }}
-                size={24}
-                source={{ uri: league.logo }}
-              />
-            )}
-            title={league.name}
-            id={league.id.toString()}
-          >
-            {seasons.map((season: any) => (
-              <List.Item title={season.year.toString()} />
-            ))}
-          </List.Accordion>
-        ))}
-      </List.AccordionGroup>
+      <LeaguesList leagues={leagues} />
     </ScrollView>
   );
 };
