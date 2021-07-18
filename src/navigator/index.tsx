@@ -1,14 +1,13 @@
 import * as React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
-import { SearchLeaguesScreen } from "../screens";
 
-const Stack = createStackNavigator();
+import { SearchLeaguesScreen } from "../screens";
+import { StyledNavigator, Stack } from "./main-navigator.styled";
 
 function MainNavigator() {
   return (
-    <Stack.Navigator>
+    <StyledNavigator>
       <Stack.Screen name="Search Leagues" component={SearchLeaguesScreen} />
-    </Stack.Navigator>
+    </StyledNavigator>
   );
 }
 
