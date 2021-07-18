@@ -7,12 +7,10 @@ import { fetchLeague } from "./api";
 
 export function* fetchSearchedLeaguesSaga(action: AnyAction): any {
   try {
-    const country = action.payload;
-    const leagues = yield call(() => fetchLeague(country));
-
-    yield put(setLeaguesList(leagues));
-
+    const countryCode = action.payload;
+    const leagues = yield call(() => fetchLeague(countryCode));
     console.log(leagues);
+    yield put(setLeaguesList(leagues));
   } catch (e) {
     console.log(e);
   }

@@ -8,9 +8,9 @@ export const setLeaguesList = (list: any[]) => {
 };
 
 export const FETCH_SEARCHED_LEAGUE = "leagues/FETCH_SEARCHED_LEAGUE";
-export const fetchSearchedLeague = (league: string) => {
+export const fetchSearchedLeague = (countryCode: string) => {
   return {
     type: FETCH_SEARCHED_LEAGUE,
-    payload: league,
+    payload: countryCode,
   };
 };

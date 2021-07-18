@@ -19,7 +19,7 @@ interface League {
 
 interface Season {
   current: boolean;
-  end: string;
-  start: string;
+  end: Date;
+  start: Date;
   year: number;
 }

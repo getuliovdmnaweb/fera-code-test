@@ -1,11 +1,11 @@
 import React from "react";
-import { ScrollView } from "react-native";
-import { TextInput, List, Avatar } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
+
 import { LeaguesList } from "../../components";
 import { useInputSubmit } from "../../hooks";
 import { RootState } from "../../redux";
 import { fetchSearchedLeague } from "../../redux/actions";
+import { ScrollContainer, Input } from "./search-leagues.styled";
 
 const SearchLeagues: React.FC = () => {
   const leagues = useSelector((state: RootState) => state.leagues.list);
@@ -20,17 +20,19 @@ const SearchLeagues: React.FC = () => {
   });
 
   return (
-    <ScrollView>
-      <TextInput
-        label="Country"
+    <ScrollContainer>
+      <Input
+        label="Country Code"
         value={inputText}
-        placeholder="Type Country Code or Country Name"
+        placeholder="Type Country Code Ex.:(BR,FR,US...)"
         onChangeText={setInputText}
         onSubmitEditing={onSubmit}
+        maxLength={2}
+        right={<Input.Affix text="/2" />}
         mode="outlined"
       />
       <LeaguesList leagues={leagues} />
-    </ScrollView>
+    </ScrollContainer>
   );
 };
 
