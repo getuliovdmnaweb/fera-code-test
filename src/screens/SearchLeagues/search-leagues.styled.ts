@@ -7,6 +7,7 @@ export const ScrollContainer = styled.ScrollView`
 `;
 
 export const Input = styled(TextInput)`
+  margin-top: ${({ theme }) => theme.spacing.md};
   margin-bottom: ${({ theme }) => theme.spacing.md};
   border-color: ${({ theme }) => theme.colors.lightBlue};
 `;

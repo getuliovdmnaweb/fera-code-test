@@ -14,3 +14,12 @@ export const fetchSearchedLeague = (countryCode: string) => {
     payload: countryCode,
   };
 };
+
+export const SET_LOADING_LEAGUES = "leagues/SET_LOADING_LEAGUES";
+
+export const setLoadingLeagues = (isLoading: boolean) => {
+  return {
+    type: SET_LOADING_LEAGUES,
+    payload: isLoading,
+  };
+};

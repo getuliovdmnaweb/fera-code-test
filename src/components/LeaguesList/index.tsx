@@ -1,8 +1,15 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text } from "react-native";
 import { List } from "react-native-paper";
 
-import { Accordion, AccordionItem, Icon } from "./leagues-list.styled";
+import {
+  Accordion,
+  AccordionItem,
+  DateContainer,
+  EndDate,
+  Icon,
+  StartDate,
+} from "./leagues-list.styled";
 
 interface Props {
   leagues: LeagueInfo[];
@@ -26,21 +33,15 @@ const LeaguesList: React.FC<Props> = ({ leagues }) => {
                 key={index.toString()}
                 left={(props) => <List.Icon {...props} icon="calendar" />}
                 right={() => (
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                      padding: 8,
-                    }}
-                  >
-                    <Text style={{ marginRight: 8 }}>
+                  <DateContainer>
+                    <StartDate>
                       {startDate.getFullYear()}/{startDate.getMonth()}
-                    </Text>
+                    </StartDate>
                     <Text>to</Text>
-                    <Text style={{ marginLeft: 8 }}>
+                    <EndDate>
                       {endDate.getFullYear()}/{endDate.getMonth()}
-                    </Text>
-                  </View>
+                    </EndDate>
+                  </DateContainer>
                 )}
                 title={season.year.toString()}
               />

@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { LeaguesList } from "../../components";
+import { LeaguesList, LoadingLeagues } from "../../components";
 import { useInputSubmit } from "../../hooks";
 import { RootState } from "../../redux";
 import { fetchSearchedLeague } from "../../redux/actions";
@@ -29,9 +29,10 @@ const SearchLeagues: React.FC = () => {
         onSubmitEditing={onSubmit}
         maxLength={2}
         right={<Input.Affix text="/2" />}
-        mode="outlined"
       />
-      <LeaguesList leagues={leagues} />
+      <LoadingLeagues>
+        <LeaguesList leagues={leagues} />
+      </LoadingLeagues>
     </ScrollContainer>
   );
 };
