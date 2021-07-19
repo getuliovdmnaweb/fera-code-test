@@ -8,16 +8,16 @@ interface Props {
   children: React.ReactElement;
 }
 
-const LoadingLeagues: React.FC<Props> = ({ children }) => {
-  const isLoadingLeagues = useSelector(
-    (state: RootState) => state.leagues.isLoading
+const LoadingStandings: React.FC<Props> = ({ children }) => {
+  const isLoadingStandings = useSelector(
+    (state: RootState) => state.standings.isLoading
   );
 
-  if (isLoadingLeagues) {
+  if (isLoadingStandings) {
     return <Loading />;
   }
 
   return children;
 };
 
-export default LoadingLeagues;
+export default LoadingStandings;

@@ -16,24 +16,24 @@ interface Props {
   standing: StandingInfo;
 }
 
-const TableRow: React.FC<Props> = ({ standing }) => {
-  const getRankColor = (rank: number) => {
-    if (rank < 5) {
-      return "#0094E5";
-    }
-    if (rank >= 5 && rank < 7) {
-      return "#1175A8";
-    }
-    if (rank >= 7 && rank < 13) {
-      return "#1F304E";
-    }
-    if (rank >= 17 && rank < 21) {
-      return "#9E203E";
-    }
-  };
+const getRankColor = (rank: number) => {
+  if (rank < 5) {
+    return "#0094E5";
+  }
+  if (rank >= 5 && rank < 7) {
+    return "#1175A8";
+  }
+  if (rank >= 7 && rank < 13) {
+    return "#1F304E";
+  }
+  if (rank >= 17 && rank < 21) {
+    return "#9E203E";
+  }
+};
 
+const TableRow: React.FC<Props> = ({ standing }) => {
   return (
-    <Container>
+    <Container key={standing.rank.toString()}>
       <RankCell style={{ backgroundColor: getRankColor(standing.rank) }}>
         {standing.rank}
       </RankCell>

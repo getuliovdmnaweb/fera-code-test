@@ -16,3 +16,11 @@ export const setStandingsList = (list: any[]) => {
     payload: list,
   };
 };
+
+export const SET_LOADING_STANDINGS = "standings/SET_LOADING_LIST";
+export const setLoadingStandings = (isLoading: boolean) => {
+  return {
+    type: SET_LOADING_STANDINGS,
+    payload: isLoading,
+  };
+};

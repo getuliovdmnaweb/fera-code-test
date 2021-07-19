@@ -12,4 +12,6 @@ export {
   fetchLeagueStandings,
   SET_STANDINGS_LIST,
   setStandingsList,
+  SET_LOADING_STANDINGS,
+  setLoadingStandings,
 } from "./standings";
