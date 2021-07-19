@@ -5,6 +5,7 @@ declare module "styled-components" {
     colors: {
       darkBlue: string;
       lightBlue: string;
+      lightGray: string;
     };
     sizes: {
       icon: number;
