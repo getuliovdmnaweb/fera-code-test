@@ -81,3 +81,7 @@ export const LoseText = styled.Text`
   width: ${({ theme }) => theme.spacing.lg}
   color: ${({ theme }) => theme.colors.lose};
 `;
+
+export const BoldText = styled.Text`
+  font-weight: bold;
+`;

@@ -1,7 +1,9 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Text } from "react-native";
+
 import {
   AllPlayedText,
+  BoldText,
   Container,
   DrawText,
   LoseText,
@@ -34,13 +36,21 @@ const getRankColor = (rank: number) => {
 };
 
 const TableRow: React.FC<Props> = ({ standing }) => {
+  const navigation = useNavigation();
+
+  const onNavigate = () => {
+    navigation.navigate("Team Detail", {
+      teamId: standing.team.id,
+    });
+  };
+
   return (
     <Container key={standing.rank.toString()}>
       <RankCell style={{ backgroundColor: getRankColor(standing.rank) }}>
         {standing.rank}
       </RankCell>
       <Row>
-        <TeamContainer>
+        <TeamContainer onPress={onNavigate}>
           <TeamImage source={{ uri: standing.team.logo }} />
           <TeamCell>{standing.team.name}</TeamCell>
         </TeamContainer>
@@ -49,7 +59,7 @@ const TableRow: React.FC<Props> = ({ standing }) => {
           <WinText>{standing.all.win}</WinText>
           <DrawText>{standing.all.draw}</DrawText>
           <LoseText>{standing.all.lose}</LoseText>
-          <Text style={{ fontWeight: "bold" }}>{standing.points}</Text>
+          <BoldText>{standing.points}</BoldText>
         </ScoreCell>
       </Row>
     </Container>

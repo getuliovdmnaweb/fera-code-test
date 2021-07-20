@@ -1,6 +1,10 @@
 import * as React from "react";
 
-import { SearchLeaguesScreen, StandingsScreen } from "../screens";
+import {
+  SearchLeaguesScreen,
+  StandingsScreen,
+  TeamDetailScreen,
+} from "../screens";
 import { StyledNavigator, Stack } from "./main-navigator.styled";
 
 function MainNavigator() {
@@ -8,6 +12,7 @@ function MainNavigator() {
     <StyledNavigator>
       <Stack.Screen name="Search Leagues" component={SearchLeaguesScreen} />
       <Stack.Screen name="League Standings" component={StandingsScreen} />
+      <Stack.Screen name="Team Detail" component={TeamDetailScreen} />
     </StyledNavigator>
   );
 }
