@@ -6,3 +6,12 @@ export {
   SET_LOADING_LEAGUES,
   setLoadingLeagues,
 } from "./leagues";
+
+export {
+  FETCH_LEAGUE_STANDINGS,
+  fetchLeagueStandings,
+  SET_STANDINGS_LIST,
+  setStandingsList,
+  SET_LOADING_STANDINGS,
+  setLoadingStandings,
+} from "./standings";

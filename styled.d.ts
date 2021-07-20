@@ -5,6 +5,11 @@ declare module "styled-components" {
     colors: {
       darkBlue: string;
       lightBlue: string;
+      lightGray: string;
+      draw: string;
+      lose: string;
+      win: string;
+      played: string;
     };
     sizes: {
       icon: number;
