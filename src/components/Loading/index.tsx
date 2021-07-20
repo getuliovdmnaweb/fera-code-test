@@ -1,8 +1,19 @@
-import styled from "styled-components/native";
+import React from "react";
+import { View } from "react-native";
 
-import { ActivityIndicator } from "react-native-paper";
+import { Loading } from "./loading-styled";
 
-export const Loading = styled(ActivityIndicator).attrs(({ theme }) => ({
-  color: theme.colors.darkBlue,
-  size: "large",
-}))``;
+interface Props {
+  children: React.ReactElement;
+  isLoading: boolean;
+}
+
+const LoadingWrapper: React.FC<Props> = ({ children, isLoading }) => {
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  return children;
+};
+
+export default LoadingWrapper;

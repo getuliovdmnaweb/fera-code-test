@@ -1,13 +1,17 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text } from "react-native";
 
 import {
+  AllPlayedText,
   Container,
+  DrawText,
   Header,
+  LoseText,
   RankCell,
   ScoreCell,
   TeamCell,
   TeamContainer,
+  WinText,
 } from "./table.styled";
 
 const TableHeader: React.FC = () => {
@@ -19,11 +23,11 @@ const TableHeader: React.FC = () => {
           <TeamCell>Team</TeamCell>
         </TeamContainer>
         <ScoreCell>
-          <Text>MP</Text>
-          <Text>W</Text>
-          <Text>D</Text>
-          <Text>L</Text>
-          <Text>Pts</Text>
+          <AllPlayedText>P</AllPlayedText>
+          <WinText>W</WinText>
+          <DrawText>D</DrawText>
+          <LoseText>L</LoseText>
+          <Text style={{ fontWeight: "bold" }}>Pt</Text>
         </ScoreCell>
       </Header>
     </Container>

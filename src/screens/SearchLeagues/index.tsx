@@ -1,14 +1,14 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { LeaguesList, LoadingLeagues } from "../../components";
+import { LeaguesList, LoadingWrapper } from "../../components";
 import { useInputSubmit } from "../../hooks";
 import { RootState } from "../../redux";
 import { fetchSearchedLeague } from "../../redux/actions";
 import { ScrollContainer, Input } from "./search-leagues.styled";
 
 const SearchLeagues: React.FC = () => {
-  const leagues = useSelector((state: RootState) => state.leagues.list);
+  const { list, isLoading } = useSelector((state: RootState) => state.leagues);
   const dispatch = useDispatch();
 
   const fetchLeagues = () => {
@@ -30,9 +30,9 @@ const SearchLeagues: React.FC = () => {
         maxLength={2}
         right={<Input.Affix text="/2" />}
       />
-      <LoadingLeagues>
-        <LeaguesList leagues={leagues} />
-      </LoadingLeagues>
+      <LoadingWrapper isLoading={isLoading}>
+        <LeaguesList leagues={list} />
+      </LoadingWrapper>
     </ScrollContainer>
   );
 };

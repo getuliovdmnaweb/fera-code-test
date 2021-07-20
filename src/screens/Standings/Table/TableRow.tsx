@@ -1,15 +1,17 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
-import { Text, View } from "react-native";
+import { Text } from "react-native";
 import {
+  AllPlayedText,
   Container,
-  Header,
+  DrawText,
+  LoseText,
   RankCell,
   Row,
   ScoreCell,
   TeamCell,
   TeamContainer,
   TeamImage,
+  WinText,
 } from "./table.styled";
 
 interface Props {
@@ -43,11 +45,11 @@ const TableRow: React.FC<Props> = ({ standing }) => {
           <TeamCell>{standing.team.name}</TeamCell>
         </TeamContainer>
         <ScoreCell>
-          <Text>{standing.all.played}</Text>
-          <Text>{standing.all.win}</Text>
-          <Text>{standing.all.draw}</Text>
-          <Text>{standing.all.lose}</Text>
-          <Text>{standing.points}</Text>
+          <AllPlayedText>{standing.all.played}</AllPlayedText>
+          <WinText>{standing.all.win}</WinText>
+          <DrawText>{standing.all.draw}</DrawText>
+          <LoseText>{standing.all.lose}</LoseText>
+          <Text style={{ fontWeight: "bold" }}>{standing.points}</Text>
         </ScoreCell>
       </Row>
     </Container>

@@ -53,3 +53,31 @@ export const ScoreCell = styled.View`
   flex-direction: row;
   justify-content: space-between;
 `;
+
+export const AllPlayedText = styled.Text`
+  font-weight: bold;
+  text-align: center;
+  width: ${({ theme }) => theme.spacing.lg}
+  color: ${({ theme }) => theme.colors.played};
+`;
+
+export const WinText = styled.Text`
+  font-weight: bold;
+  text-align: center;
+  width: ${({ theme }) => theme.spacing.lg}
+  color: ${({ theme }) => theme.colors.win};
+`;
+
+export const DrawText = styled.Text`
+  font-weight: bold;
+  text-align: center;
+  width: ${({ theme }) => theme.spacing.lg}
+  color: ${({ theme }) => theme.colors.draw};
+`;
+
+export const LoseText = styled.Text`
+  font-weight: bold;
+  text-align: center;
+  width: ${({ theme }) => theme.spacing.lg}
+  color: ${({ theme }) => theme.colors.lose};
+`;
