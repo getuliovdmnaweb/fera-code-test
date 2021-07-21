@@ -13,3 +13,11 @@ export const fetchTeamInformation = (teamId: number) => {
     payload: teamId,
   };
 };
+
+export const SET_LOADING_TEAM = "teams/SET_LOADING_TEAM";
+export const setLoadingTeam = (isLoading: boolean) => {
+  return {
+    type: SET_LOADING_TEAM,
+    payload: isLoading,
+  };
+};

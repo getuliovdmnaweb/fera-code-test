@@ -21,4 +21,6 @@ export {
   fetchTeamInformation,
   SET_TEAM_INFORMATION,
   setTeamInformation,
+  SET_LOADING_TEAM,
+  setLoadingTeam,
 } from "./teams";

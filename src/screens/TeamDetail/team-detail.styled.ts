@@ -56,3 +56,7 @@ export const TeamLogo = styled.Image`
 export const Body = styled.View`
   padding: ${({ theme }) => theme.spacing.md};
 `;
+
+export const TeamOption = styled.Text`
+  color: ${({ theme }) => theme.colors.darkBlue};
+`;
