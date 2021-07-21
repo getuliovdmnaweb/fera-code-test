@@ -12,7 +12,7 @@ Application to show football leagues of your favourite teams.
 ## Getting Started
 
 #### APK Android
-Apk's link was created with expo for android. Download Android [APK here]()
+Apk's link was created with expo for android. Download Android [APK here](https://expo.io/artifacts/a19d4400-69fb-41a9-a548-7715ea33b09e)
 
 After downloading the apk drag and drop it to an emulator or try to install it on your Android device.
 
