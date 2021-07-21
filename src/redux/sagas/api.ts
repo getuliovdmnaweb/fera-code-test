@@ -1,5 +1,5 @@
 import { api } from "../../api";
-import { LEAGUES_URL, STANDINGS_URL } from "../../api/constants";
+import { LEAGUES_URL, STANDINGS_URL, TEAM_URL } from "../../api/constants";
 
 export const fetchLeague = async (countryCode: string): Promise<any> => {
   const response = await api.get(LEAGUES_URL, {
@@ -16,4 +16,11 @@ export const getLeagueStandings = async (
     params: { league: leagueId, season: leagueYear },
   });
   return response.response;
+};
+
+export const getTeamInformation = async (teamId: number) => {
+  const response = await api.get(TEAM_URL, {
+    params: { id: teamId },
+  });
+  return response.response[0];
 };

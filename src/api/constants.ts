@@ -4,3 +4,4 @@ export const BASE_URL: string = "https://v3.football.api-sports.io";
 
 export const LEAGUES_URL: string = `${BASE_URL}/leagues`;
 export const STANDINGS_URL: string = `${BASE_URL}/standings`;
+export const TEAM_URL: string = `${BASE_URL}/teams`;

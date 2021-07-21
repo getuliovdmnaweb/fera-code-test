@@ -1,5 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { fetchTeamInformation } from "../../../redux/actions";
 
 import {
   AllPlayedText,
@@ -37,11 +39,11 @@ const getRankColor = (rank: number) => {
 
 const TableRow: React.FC<Props> = ({ standing }) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   const onNavigate = () => {
-    navigation.navigate("Team Detail", {
-      teamId: standing.team.id,
-    });
+    dispatch(fetchTeamInformation(standing.team.id));
+    navigation.navigate("Team Detail");
   };
 
   return (

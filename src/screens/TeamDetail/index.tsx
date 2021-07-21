@@ -1,11 +1,24 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { ScrollView } from "react-native";
+import { useSelector } from "react-redux";
+
+import { LoadingWrapper } from "../../components";
+import { RootState } from "../../redux";
+import TeamBody from "./TeamBody";
+import TeamHeader from "./TeamHeader";
 
 const TeamDetail: React.FC = () => {
+  const { info, isLoading } = useSelector((state: RootState) => state.team);
+
   return (
-    <View>
-      <Text>Team Detail</Text>
-    </View>
+    <ScrollView>
+      <LoadingWrapper isLoading={isLoading}>
+        <>
+          <TeamHeader team={info?.team} />
+          <TeamBody venue={info?.venue} />
+        </>
+      </LoadingWrapper>
+    </ScrollView>
   );
 };
 
